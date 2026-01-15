@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apoie ONGs - Transforme Anúncios em Doações</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            color: #333;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header */
+        header {
+            text-align: center;
+            padding: 60px 20px;
+            background: #fff;
+            border-radius: 20px;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo {
+            font-size: 80px;
+            margin-bottom: 20px;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        h1 {
+            font-size: 48px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .tagline {
+            font-size: 24px;
+            color: #666;
+            font-weight: 500;
+            margin-bottom: 30px;
+        }
+
+        .description {
+            font-size: 16px;
+            color: #999;
+            max-width: 600px;
+            margin: 0 auto 40px;
+            line-height: 1.8;
+        }
+
+        /* Value Proposition */
+        .value-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin-bottom: 60px;
+        }
+
+        .value-card {
+            background: #fff;
+            border-radius: 16px;
+            padding: 32px;
+            text-align: center;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .value-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+        }
+
+        .value-icon {
+            font-size: 56px;
+            margin-bottom: 16px;
+        }
+
+        .value-title {
+            font-size: 22px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 12px;
+        }
+
+        .value-text {
+            font-size: 15px;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Stats Section */
+        .stats-section {
+            background: #fff;
+            border-radius: 20px;
+            padding: 48px;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .stats-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .stats-header h2 {
+            font-size: 32px;
+            color: #333;
+            margin-bottom: 12px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 32px;
+            margin-bottom: 32px;
+        }
+
+        .stat-box {
+            text-align: center;
+            padding: 24px;
+            background: #f8f9fa;
+            border-radius: 12px;
+        }
+
+        .stat-icon {
+            font-size: 36px;
+            margin-bottom: 12px;
+        }
+
+        .stat-value {
+            font-size: 42px;
+            font-weight: bold;
+            color: #4CAF50;
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            font-size: 14px;
+            color: #666;
+            font-weight: 600;
+        }
+
+        /* How It Works */
+        .how-it-works {
+            background: #fff;
+            border-radius: 20px;
+            padding: 48px;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .how-it-works h2 {
+            text-align: center;
+            font-size: 32px;
+            color: #333;
+            margin-bottom: 40px;
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 32px;
+        }
+
+        .step {
+            text-align: center;
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            font-weight: bold;
+            margin: 0 auto 16px;
+        }
+
+        .step-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 8px;
+        }
+
+        .step-text {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* ONG Section */
+        .ong-section {
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+            border-radius: 20px;
+            padding: 48px;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .ong-section h2 {
+            font-size: 32px;
+            color: #2e7d32;
+            margin-bottom: 16px;
+        }
+
+        .ong-name {
+            font-size: 40px;
+            font-weight: bold;
+            color: #1b5e20;
+            margin-bottom: 24px;
+        }
+
+        .ong-description {
+            font-size: 16px;
+            color: #4a4a4a;
+            max-width: 700px;
+            margin: 0 auto 32px;
+            line-height: 1.8;
+        }
+
+        .instagram-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: linear-gradient(135deg, #E1306C 0%, #C13584 100%);
+            color: #fff;
+            padding: 16px 32px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            box-shadow: 0 4px 16px rgba(225, 48, 108, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .instagram-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(225, 48, 108, 0.4);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+            border-radius: 20px;
+            padding: 60px 48px;
+            text-align: center;
+            color: #fff;
+            margin-bottom: 40px;
+            box-shadow: 0 8px 24px rgba(76, 175, 80, 0.3);
+        }
+
+        .cta-section h2 {
+            font-size: 36px;
+            margin-bottom: 16px;
+        }
+
+        .cta-section p {
+            font-size: 18px;
+            margin-bottom: 32px;
+            opacity: 0.95;
+        }
+
+        .download-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .download-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: #fff;
+            color: #4CAF50;
+            padding: 16px 32px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .download-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .download-icon {
+            font-size: 24px;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: #666;
+        }
+
+        .validity-badge {
+            background: #fff;
+            padding: 12px 24px;
+            border-radius: 8px;
+            display: inline-block;
+            margin-bottom: 16px;
+            font-size: 12px;
+            color: #999;
+            font-style: italic;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 36px;
+            }
+
+            .tagline {
+                font-size: 20px;
+            }
+
+            .stats-section,
+            .how-it-works,
+            .ong-section,
+            .cta-section {
+                padding: 32px 24px;
+            }
+
+            .download-buttons {
+                flex-direction: column;
+            }
+
+            .download-button {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <div class="logo">⭐</div>
+            <h1>Apoie ONGs</h1>
+            <p class="tagline">Transforme anúncios em doações</p>
+            <p class="description">
+                Junte-se a uma comunidade que faz a diferença. A cada anúncio que você assiste, 
+                você envia uma estrela. A cada 1000 estrelas da comunidade, realizamos uma doação real.
+            </p>
+        </header>
+
+        <!-- Value Proposition Cards -->
+        <div class="value-cards">
+            <div class="value-card">
+                <div class="value-icon">⭐</div>
+                <h3 class="value-title">Acumule Estrelas</h3>
+                <p class="value-text">
+                    Assista anúncios e envie estrelas para a comunidade. Cada visualização conta!
+                </p>
+            </div>
+
+            <div class="value-card">
+                <div class="value-icon">❤️</div>
+                <h3 class="value-title">Gere Doações</h3>
+                <p class="value-text">
+                    A cada 1000 estrelas acumuladas pela comunidade, uma doação é realizada.
+                </p>
+            </div>
+
+            <div class="value-card">
+                <div class="value-icon">🌟</div>
+                <h3 class="value-title">Faça a Diferença</h3>
+                <p class="value-text">
+                    Seu impacto é real. Acompanhe o progresso e veja o bem que você está fazendo.
+                </p>
+            </div>
+        </div>
+
+        <!-- Stats Section -->
+        <!-- <div class="stats-section">
+            <div class="stats-header">
+                <h2>Nosso Impacto Coletivo</h2>
+                <p style="color: #666;">Juntos, estamos fazendo a diferença</p>
+            </div>
+            <div class="stats-grid">
+                <div class="stat-box">
+                    <div class="stat-icon">❤️</div>
+                    <div class="stat-value">∞</div>
+                    <div class="stat-label">Doações Realizadas</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-icon">✨</div>
+                    <div class="stat-value">∞</div>
+                    <div class="stat-label">Estrelas Enviadas</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-icon">👥</div>
+                    <div class="stat-value">∞</div>
+                    <div class="stat-label">Pessoas Ajudando</div>
+                </div>
+            </div>
+        </div> -->
+
+        <!-- How It Works -->
+        <div class="how-it-works">
+            <h2>Como Funciona</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3 class="step-title">Baixe o App</h3>
+                    <p class="step-text">
+                        Disponível para Android. Faça login com sua conta Google.
+                    </p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3 class="step-title">Assista Anúncios</h3>
+                    <p class="step-text">
+                        Cada anúncio assistido envia uma estrela para a comunidade.
+                    </p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3 class="step-title">Geramos Doações</h3>
+                    <p class="step-text">
+                        A cada 1000 estrelas, fazemos uma doação para a ONG parceira.
+                    </p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3 class="step-title">Acompanhe o Impacto</h3>
+                    <p class="step-text">
+                        Veja suas estatísticas e o progresso da comunidade em tempo real.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ONG Section -->
+        <div class="ong-section">
+            <h2>ONG Parceira</h2>
+            <div class="ong-name">💚 Amigos e Eu</div>
+            <p class="ong-description">
+                A ONG Amigos e Eu trabalha incansavelmente para fazer a diferença na vida de 
+                pessoas que precisam de apoio e solidariedade. Através do seu apoio, estamos 
+                conseguindo ampliar o alcance e o impacto do trabalho desta organização incrível.
+            </p>
+            <a href="https://www.instagram.com/ong_amigos_e_eu/" target="_blank" class="instagram-button">
+                <span style="font-size: 24px;">📷</span>
+                <span>Conhecer no Instagram</span>
+            </a>
+        </div>
+
+        <!-- CTA Section -->
+        <div class="cta-section">
+            <h2>Pronto para Fazer a Diferença?</h2>
+            <p>Baixe o app agora e comece a enviar estrelas!</p>
+            <div class="download-buttons">
+                <a href="https://play.google.com/store/apps/details?id=com.onghelperfe" class="download-button">
+                    <span class="download-icon">🤖</span>
+                    <span>Disponível para Android</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <div class="validity-badge">
+                Campanha válida até 31 de janeiro de 2026
+            </div>
+            <p>© 2026 Apoie ONGs. Transformando anúncios em doações reais.</p>
+        </footer>
+    </div>
+</body>
+</html>
